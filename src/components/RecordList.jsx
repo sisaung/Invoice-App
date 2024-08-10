@@ -1,7 +1,10 @@
 import React from "react";
 import useRecordStore from "../store/useRecordStore";
 
-const RecordList = ({ record: { id, productName, price, quantity, cost } }) => {
+const RecordList = ({
+  record: { id, productName, price, quantity, cost },
+  index,
+}) => {
   const { deleteRecord, updateRecord } = useRecordStore();
 
   const handleDeleteBtn = () => {
@@ -19,9 +22,9 @@ const RecordList = ({ record: { id, productName, price, quantity, cost } }) => {
       <tr className="bg-white border-b group dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
         <th
           scope="row"
-          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          className="px-6 py-4 font-medium text-gray-900 counter counterIncrement whitespace-nowrap dark:text-white"
         >
-          {id}
+          {index + 1}
         </th>
         <th
           scope="row"

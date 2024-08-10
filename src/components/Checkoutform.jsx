@@ -16,18 +16,14 @@ const Checkoutform = () => {
     const currentProduct = products.find((p) => p.name === select);
     const isExistingRecord = records.find((r) => r.productName === select);
 
-    console.log(isExistingRecord);
-
     const quantity = parseInt(numberRef.current.value);
 
     if (select !== undefined && quantity > 0) {
       if (isExistingRecord) {
-        console.log("hello");
-
         updateRecord(isExistingRecord.id, quantity);
       } else {
         const newRecord = {
-          id: records.length + 1,
+          id: Date.now(),
           productName: select,
           price: currentProduct.price,
           quantity: quantity,
@@ -36,7 +32,6 @@ const Checkoutform = () => {
         addRecord(newRecord);
       }
 
-      // setSelect("");
       numberRef.current.value = "";
     }
   };
@@ -70,7 +65,7 @@ const Checkoutform = () => {
         >
           Select a number:
         </label>
-        <InputComponent type="number" ref={numberRef} placeholder="100" />
+        <InputComponent type="number" refProp={numberRef} placeholder="100" />
       </div>
       <div className="flex flex-col col-span-1">
         <button

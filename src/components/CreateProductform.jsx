@@ -12,7 +12,7 @@ const CreateProductform = () => {
     const price = parseFloat(addPriceRef.current.value).toFixed(2);
     if (addProductRef.current.value && addPriceRef.current.value > 0) {
       const newProduct = {
-        id: products.length + 1,
+        id: Date.now(),
         name: addProductRef.current.value,
         price: price,
       };
@@ -31,14 +31,18 @@ const CreateProductform = () => {
           ref={addProductRef}
           className="w-full py-2 border border-gray-300 rounded-lg ps-5 outline-cyan-500"
         /> */}
-        <InputComponent type="text" ref={addProductRef} placeholder="eg.iPad" />
+        <InputComponent
+          type="text"
+          refProp={addProductRef}
+          placeholder="eg.iPad"
+        />
       </div>
       <div className="col-span-1 space-y-2">
         <h2 className="font-mono text-lg text-gray-500 text-nowrap">
           Add Price
         </h2>
 
-        <InputComponent type="number" ref={addPriceRef} placeholder="100" />
+        <InputComponent type="number" refProp={addPriceRef} placeholder="100" />
       </div>
       <div className="flex flex-col col-span-1">
         <button

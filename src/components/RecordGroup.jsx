@@ -9,7 +9,7 @@ const RecordGroup = () => {
   return (
     <div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <table className="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
@@ -37,23 +37,23 @@ const RecordGroup = () => {
           {records.length ? (
             <>
               <tbody>
-                {records.map((record) => (
-                  <RecordList key={record.id} record={record} />
+                {records.map((record, index) => (
+                  <RecordList key={record.id} index={index} record={record} />
                 ))}
               </tbody>
               <tfoot>
-                <tr className="group bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr className="bg-white border-b group dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                   <th
                     colSpan={3}
                     scope="row"
-                    className="text-lg text-end px-6 py-4 font-medium text-gray-600 whitespace-nowrap dark:text-white"
+                    className="px-6 py-4 text-lg font-medium text-gray-600 text-end whitespace-nowrap dark:text-white"
                   >
                     Total :
                   </th>
                   <th
                     colSpan={2}
                     scope="row"
-                    className="text-lg text-end px-6 py-4 font-medium text-gray-600 whitespace-nowrap dark:text-white"
+                    className="px-6 py-4 text-lg font-medium text-gray-600 text-end whitespace-nowrap dark:text-white"
                   >
                     {records
                       .reduce((acc, record) => acc + record.cost, 0)
