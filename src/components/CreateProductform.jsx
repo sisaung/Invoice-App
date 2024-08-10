@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import useRecordStore from "../store/useRecordStore";
+import InputComponent from "./InputComponent";
 
 const CreateProductform = () => {
   const addProductRef = useRef();
@@ -25,21 +26,19 @@ const CreateProductform = () => {
     <div className="grid grid-cols-2 gap-5 py-5 mt-auto">
       <div className="col-span-2 space-y-2">
         <h2 className="font-mono text-lg text-gray-500">Add New Product</h2>
-        <input
+        {/* <input
           type="text"
           ref={addProductRef}
           className="w-full py-2 border border-gray-300 rounded-lg ps-5 outline-cyan-500"
-        />
+        /> */}
+        <InputComponent type="text" ref={addProductRef} placeholder="eg.iPad" />
       </div>
       <div className="col-span-1 space-y-2">
         <h2 className="font-mono text-lg text-gray-500 text-nowrap">
           Add Price
         </h2>
-        <input
-          type="number"
-          ref={addPriceRef}
-          className="w-full py-2 border border-gray-300 rounded-lg ps-5 outline-cyan-500"
-        />
+
+        <InputComponent type="number" ref={addPriceRef} placeholder="100" />
       </div>
       <div className="flex flex-col col-span-1">
         <button

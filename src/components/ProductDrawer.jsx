@@ -27,20 +27,24 @@ const ProductDrawer = () => {
 
   return (
     <div
-      className={`${
+      className={` ${
         openDrawer ? "translate-x-0" : "translate-x-full"
-      } flex flex-col duration-500 min-h-screen z-10 w-1/4 bg-gray-100 p-5 fixed top-0 right-0`}
+      } flex flex-col duration-500 min-h-screen z-10 w-1/4 bg-gray-100 p-5 fixed
+       top-0 right-0`}
     >
       <div className="flex items-center justify-between mb-5">
         <h1 className="font-serif text-2xl font-bold"> Your Product </h1>
-        <button onClick={handleOpenDrawer}>
+        <button
+          onClick={handleOpenDrawer}
+          className="group hover:rounded-full hover:bg-gray-400 active:scale-x-90"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-6 stroke-gray-400"
+            className="size-6 stroke-gray-400 group-hover:stroke-white "
           >
             <path
               strokeLinecap="round"

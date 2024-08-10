@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 
 import useRecordStore from "../store/useRecordStore";
+import InputComponent from "./InputComponent";
 
 const Checkoutform = () => {
   const { products, records, addRecord, updateRecord } = useRecordStore();
@@ -69,15 +70,7 @@ const Checkoutform = () => {
         >
           Select a number:
         </label>
-        <input
-          type="number"
-          id="number-input"
-          ref={numberRef}
-          aria-describedby="helper-text-explanation"
-          className="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-cyan-500 dark:focus:border-cyan-500"
-          placeholder="90210"
-          required
-        />
+        <InputComponent type="number" ref={numberRef} placeholder="100" />
       </div>
       <div className="flex flex-col col-span-1">
         <button
