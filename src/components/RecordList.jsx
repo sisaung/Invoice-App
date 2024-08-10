@@ -16,7 +16,7 @@ const RecordList = ({ record: { id, productName, price, quantity, cost } }) => {
   };
   return (
     <>
-      <tr className="group bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+      <tr className="bg-white border-b group dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
         <th
           scope="row"
           className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -29,11 +29,11 @@ const RecordList = ({ record: { id, productName, price, quantity, cost } }) => {
         >
           {productName}
         </th>
-        <td className="px-6 py-4 text-end select-none"> {price} </td>
-        <td className=" overflow-hidden px-6 py-4  flex gap-3 items-center justify-end">
+        <td className="px-6 py-4 select-none text-end"> {price} </td>
+        <td className="flex items-center justify-end gap-3 px-6 py-4 overflow-hidden ">
           <button
             onClick={handleAddQuantity}
-            className="group-hover:translate-x-0 duration-500 -translate-x-36 bg-cyan-400 rounded-full text-white"
+            className="text-white duration-500 rounded-full group-hover:translate-x-0 -translate-x-36 bg-cyan-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ const RecordList = ({ record: { id, productName, price, quantity, cost } }) => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-4  "
+              className="size-4 "
             >
               <path
                 strokeLinecap="round"
@@ -53,7 +53,7 @@ const RecordList = ({ record: { id, productName, price, quantity, cost } }) => {
           <span className="select-none">{quantity}</span>
           <button
             onClick={handleReduceQuantity}
-            className="group-hover:translate-x-0 duration-500 translate-x-36 bg-cyan-400 rounded-full text-white"
+            className="text-white duration-500 rounded-full group-hover:translate-x-0 translate-x-36 bg-cyan-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -67,11 +67,11 @@ const RecordList = ({ record: { id, productName, price, quantity, cost } }) => {
             </svg>
           </button>
         </td>
-        <td className="px-6 py-4 text-end select-none"> {cost} </td>
-        <td className="px-6 py-4 text-end overflow-hidden">
+        <td className="px-6 py-4 select-none text-end"> {cost.toFixed(2)} </td>
+        <td className="px-6 py-4 overflow-hidden text-end">
           <button
             onClick={handleDeleteBtn}
-            className="group-hover:translate-x-0 duration-500 translate-x-36"
+            className="duration-500 group-hover:translate-x-0 translate-x-36"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

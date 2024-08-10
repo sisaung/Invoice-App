@@ -59,20 +59,20 @@ const useRecordStore = create((set) => ({
   addRecord: (newRecord) =>
     set((state) => ({ records: [...state.records, newRecord] })),
 
-  existingRecord: (id, q) =>
-    set((state) => ({
-      records: state.records.map((r) => {
-        const newQuantity = r.quantity + q;
-        if (r.id === id) {
-          return {
-            ...r,
-            quantity: r.quantity + q,
-            cost: newQuantity * r.price,
-          };
-        }
-        return r;
-      }),
-    })),
+  // existingRecord: (id, q) =>
+  //   set((state) => ({
+  //     records: state.records.map((r) => {
+  //       const newQuantity = r.quantity + q;
+  //       if (r.id === id) {
+  //         return {
+  //           ...r,
+  //           quantity: r.quantity + q,
+  //           cost: newQuantity * r.price,
+  //         };
+  //       }
+  //       return r;
+  //     }),
+  //   })),
 
   addProduct: (newProduct) =>
     set((state) => ({ products: [...state.products, newProduct] })),

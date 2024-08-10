@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import useRecordStore from "../store/useRecordStore";
 
 const Checkoutform = () => {
-  const { products, records, addRecord, existingRecord } = useRecordStore();
+  const { products, records, addRecord, updateRecord } = useRecordStore();
   const [select, setSelect] = useState();
   const numberRef = useRef();
 
@@ -23,7 +23,7 @@ const Checkoutform = () => {
       if (isExistingRecord) {
         console.log("hello");
 
-        existingRecord(isExistingRecord.id, quantity);
+        updateRecord(isExistingRecord.id, quantity);
       } else {
         const newRecord = {
           id: records.length + 1,
@@ -41,11 +41,11 @@ const Checkoutform = () => {
   };
 
   return (
-    <div className="gap-5 mb-5 border border-gray-300 grid grid-cols-5 p-5 rounded-lg my-5">
+    <div className="grid grid-cols-5 gap-5 p-5 my-5 mb-5 border border-gray-300 rounded-lg print:hidden">
       <div className="col-span-2">
         <label
           htmlFor="countries"
-          className=" block font-mono mb-2 font-bold text-lg text-gray-600 dark:text-white"
+          className="block mb-2 font-mono text-lg font-bold text-gray-600 dark:text-white"
         >
           Select an option
         </label>
@@ -65,7 +65,7 @@ const Checkoutform = () => {
       <div className="col-span-2">
         <label
           htmlFor="number-input"
-          className="block mb-2 text-lg font-bold text-gray-600 font-mono dark:text-white"
+          className="block mb-2 font-mono text-lg font-bold text-gray-600 dark:text-white"
         >
           Select a number:
         </label>
@@ -79,10 +79,10 @@ const Checkoutform = () => {
           required
         />
       </div>
-      <div className="col-span-1 flex flex-col">
+      <div className="flex flex-col col-span-1">
         <button
           onClick={handleBuyBtn}
-          className="active:scale-95 active:ring-2 active:ring-cyan-600 bg-cyan-500 px-4 py-3 rounded-lg text-white mt-auto"
+          className="px-4 py-3 mt-auto text-white rounded-lg active:scale-95 active:ring-2 active:ring-cyan-600 bg-cyan-500"
         >
           Buy
         </button>

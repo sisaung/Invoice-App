@@ -6,15 +6,21 @@ const Footer = () => {
   const handleDrawer = () => {
     toggleDrawer();
   };
+  const handlePrint = () => {
+    print();
+  };
   return (
-    <div className="mt-auto flex justify-end gap-5 py-4">
+    <div className="flex justify-end gap-5 py-4 mt-auto print:hidden">
       <button
         onClick={handleDrawer}
-        className="active:scale-95  px-5 py-2 rounded-lg shadow-md border border-gray-200"
+        className="px-5 py-2 border border-gray-200 rounded-lg shadow-md active:scale-95"
       >
         Manage Inventory
       </button>
-      <button className="px-4 py-2 rounded-lg bg-cyan-500 text-white">
+      <button
+        onClick={handlePrint}
+        className="px-4 py-2 text-white rounded-lg active:scale-95 active:ring-2 active:ring-cyan-600 bg-cyan-500"
+      >
         Print
       </button>
     </div>

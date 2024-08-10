@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useRecordStore from "../store/useRecordStore";
 import ProductGroup from "./ProductGroup";
 import CreateProductform from "./CreateProductform";
@@ -10,14 +10,29 @@ const ProductDrawer = () => {
     toggleDrawer();
   };
 
+  // useEffect(() => {
+  //   if (openDrawer) {
+  //     console.log(openDrawer);
+
+  //     document.addEventListener("click", () => {
+  //       toggleDrawer();
+  //     });
+  //   }
+  //   return () => {
+  //     document.removeEventListener("click", () => {
+  //       toggleDrawer();
+  //     });
+  //   };
+  // }, [openDrawer]);
+
   return (
     <div
       className={`${
         openDrawer ? "translate-x-0" : "translate-x-full"
       } flex flex-col duration-500 min-h-screen z-10 w-1/4 bg-gray-100 p-5 fixed top-0 right-0`}
     >
-      <div className="flex justify-between items-center mb-5">
-        <h1 className="font-bold text-2xl font-serif"> Your Product </h1>
+      <div className="flex items-center justify-between mb-5">
+        <h1 className="font-serif text-2xl font-bold"> Your Product </h1>
         <button onClick={handleOpenDrawer}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +63,7 @@ const ProductDrawer = () => {
 // <>
 //   <div
 //     id="drawer-example"
-//     className="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform  bg-white w-80 dark:bg-gray-800"
+//     className="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-white w-80 dark:bg-gray-800"
 //     tabIndex={-1}
 //     aria-labelledby="drawer-label"
 //   >
