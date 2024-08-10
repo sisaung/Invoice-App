@@ -34,31 +34,37 @@ const RecordGroup = () => {
             </tr>
           </thead>
 
-          <tbody>
-            {records.map((record) => (
-              <RecordList key={record.id} record={record} />
-            ))}
-          </tbody>
-          <tfoot>
-            <tr className="group bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-              <th
-                colSpan={3}
-                scope="row"
-                className="text-lg text-end px-6 py-4 font-medium text-gray-600 whitespace-nowrap dark:text-white"
-              >
-                Total :
-              </th>
-              <th
-                colSpan={2}
-                scope="row"
-                className="text-lg text-end px-6 py-4 font-medium text-gray-600 whitespace-nowrap dark:text-white"
-              >
-                {records
-                  .reduce((acc, record) => acc + record.cost, 0)
-                  .toFixed(2)}
-              </th>
-            </tr>
-          </tfoot>
+          {records.length ? (
+            <>
+              <tbody>
+                {records.map((record) => (
+                  <RecordList key={record.id} record={record} />
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="group bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <th
+                    colSpan={3}
+                    scope="row"
+                    className="text-lg text-end px-6 py-4 font-medium text-gray-600 whitespace-nowrap dark:text-white"
+                  >
+                    Total :
+                  </th>
+                  <th
+                    colSpan={2}
+                    scope="row"
+                    className="text-lg text-end px-6 py-4 font-medium text-gray-600 whitespace-nowrap dark:text-white"
+                  >
+                    {records
+                      .reduce((acc, record) => acc + record.cost, 0)
+                      .toFixed(2)}
+                  </th>
+                </tr>
+              </tfoot>
+            </>
+          ) : (
+            <EmptyRecord />
+          )}
         </table>
       </div>
     </div>

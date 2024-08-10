@@ -3,6 +3,7 @@ import useRecordStore from "../store/useRecordStore";
 
 const RecordList = ({ record: { id, productName, price, quantity, cost } }) => {
   const { deleteRecord, updateRecord } = useRecordStore();
+
   const handleDeleteBtn = () => {
     deleteRecord(id);
   };
@@ -28,8 +29,8 @@ const RecordList = ({ record: { id, productName, price, quantity, cost } }) => {
         >
           {productName}
         </th>
-        <td className="px-6 py-4 text-end"> {price} </td>
-        <td className="overflow-hidden px-6 py-4  flex gap-3 items-center justify-end">
+        <td className="px-6 py-4 text-end select-none"> {price} </td>
+        <td className=" overflow-hidden px-6 py-4  flex gap-3 items-center justify-end">
           <button
             onClick={handleAddQuantity}
             className="group-hover:translate-x-0 duration-500 -translate-x-36 bg-cyan-400 rounded-full text-white"
@@ -49,7 +50,7 @@ const RecordList = ({ record: { id, productName, price, quantity, cost } }) => {
               />
             </svg>
           </button>
-          <span>{quantity}</span>
+          <span className="select-none">{quantity}</span>
           <button
             onClick={handleReduceQuantity}
             className="group-hover:translate-x-0 duration-500 translate-x-36 bg-cyan-400 rounded-full text-white"
@@ -66,7 +67,7 @@ const RecordList = ({ record: { id, productName, price, quantity, cost } }) => {
             </svg>
           </button>
         </td>
-        <td className="px-6 py-4 text-end"> {cost} </td>
+        <td className="px-6 py-4 text-end select-none"> {cost} </td>
         <td className="px-6 py-4 text-end overflow-hidden">
           <button
             onClick={handleDeleteBtn}
